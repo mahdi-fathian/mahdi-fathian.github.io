@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Mahdi Fathian"
-  avatar           : "assets\images\mahdi.jpeg"
+  avatar           : "/assets/images/mahdi.jpg"
   bio              : I'm a student of IUST... 
   location         : "تهران"
   email            : mahdi_fathian@comp.iust.ac.ir
