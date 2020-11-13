@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "neon" #"default" # "air", "aqua", "contrast", "dark"
 
 # Site Settings
 locale                   : "en-US" 
-title                    : "پوررنگ آتشی"
+title                    : "مهدی فتحیان"
 title_separator          : "-"
 name                     : "Poorang" 
 description              : "Welcome to my web site."
@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Mahdi Fathian"
-  avatar           : "F:\mahdi-fathian.github.io\assets\images\mahdi.jpeg"
+  avatar           : "\assets\images\mahdi.jpeg"
   bio              : I'm a student of IUST... 
   location         : "تهران"
   email            : mahdi_fathian@comp.iust.ac.ir
