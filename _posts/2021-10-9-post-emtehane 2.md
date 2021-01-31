@@ -13,8 +13,8 @@ People in the picture are:
 [my favorite website](http://www.google.com)
 
 این سایت راجع به اگهی ماشین میباشد.
-http://aa99522311.pythonanywhere.com/
-http://a99522311.pythonanywhere.com/
+[my favorite website](http://aa99522311.pythonanywhere.com/)
+[my favorite website](http://a99522311.pythonanywhere.com/)
 
 
 سایت  خیلی ساده هست و اینگونه است که باید فرم مربوط به آگهی ماشین پر شود و سپس در صفحه ای نتایج ثبت خواهد شد.
