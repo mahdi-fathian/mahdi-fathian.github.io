@@ -16,6 +16,9 @@ People in the picture are:
 http://aa99522311.pythonanywhere.com/
 http://a99522311.pythonanywhere.com/
 
+
+سایت  خیلی ساده هست و اینگونه است که باید فرم مربوط به آگهی ماشین پر شود و سپس در صفحه ای نتایج ثبت خواهد شد.
+
 ![alt text](../assets/images/Capture.PNG "Team Picture")
 
 ---
