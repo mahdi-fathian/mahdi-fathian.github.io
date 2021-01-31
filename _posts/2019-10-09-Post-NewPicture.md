@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: My new picture
+title: My Hackathon Project
 ---
 
 ## This is my team at Microsoft
@@ -17,7 +17,7 @@ kfajdskfajsdf sakd fjksad jfksdj fksdj f
 
 
 
-![alt text](../assets/images/grouppic.jpg "Team Picture")
+![alt text](../assets/images/Capture.PNG "Team Picture")
 
 ---
 **Test**: This is atest
