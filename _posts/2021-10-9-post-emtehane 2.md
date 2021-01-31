@@ -16,7 +16,7 @@ People in the picture are:
 http://aa99522311.pythonanywhere.com/
 http://a99522311.pythonanywhere.com/
 
-![alt text](../assets/images/Capture1.jpg "Team Picture")
+![alt text](../assets/images/Capture.PNG "Team Picture")
 
 ---
 **Test**: This is atest
