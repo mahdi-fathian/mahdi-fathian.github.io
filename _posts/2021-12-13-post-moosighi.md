@@ -26,7 +26,8 @@ title: پروژه موسیقی
 
 
 
-
+[اهنگ دوم](https://soundcloud.com/user-418717547/sonic-asli-1)
+[اهنگ اول](https://soundcloud.com/user-418717547/sonic6)
 
 
 https://soundcloud.com/user-418717547/sonic6
