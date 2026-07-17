@@ -2,285 +2,10 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-
-/* ==========================================================================
-   FULL PERSIAN / RTL SUPPORT
-   The theme (minimal-mistakes) is built for LTR languages only, so every
-   left/right-sensitive rule that this site actually uses is mirrored here.
-   ========================================================================== */
-
-html[dir="rtl"] {
-
-  body {
-    font-family: "Vazirmatn", $sans-serif;
-    text-align: right;
-    direction: rtl;
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  p, li, blockquote, .page__content, .archive__item-excerpt {
-    font-family: "Vazirmatn", $sans-serif;
-  }
-
-  /* keep code/urls LTR even inside an RTL page */
-  code, pre, kbd, .highlight, a[href^="http"]:not(.skill-badge):not(.skill-badge-outline) {
-    direction: ltr;
-    unicode-bidi: embed;
-  }
-
-  /* -------------------- masthead / nav -------------------- */
-  .masthead__menu {
-    float: right;
-  }
-
-  .masthead__menu .site-nav {
-    margin-left: 0;
-    margin-right: 0;
-
-    @include breakpoint($small) {
-      float: left;
-    }
-  }
-
-  .masthead__menu-item--lg {
-    padding-right: 0;
-    padding-left: 2em;
-  }
-
-  .greedy-nav {
-    .site-title {
-      margin-right: 0;
-      margin-left: auto;
-    }
-
-    .visible-links {
-      margin-right: 1em;
-    }
-
-    a {
-      margin-left: 0;
-    }
-  }
-
-  /* -------------------- sidebar + page two column layout -------------------- */
-  @include breakpoint($large) {
-    .sidebar {
-      float: right;
-    }
-
-    .page {
-      float: left;
-      padding-right: 0;
-      padding-left: $right-sidebar-width-narrow;
-    }
-
-    .sidebar__right {
-      right: auto;
-      left: 0;
-      margin-right: 0;
-      margin-left: -1 * $right-sidebar-width-narrow;
-      padding-left: 0;
-      padding-right: 1em;
-    }
-  }
-
-  @include breakpoint($x-large) {
-    .page {
-      padding-left: $right-sidebar-width;
-    }
-
-    .sidebar__right {
-      margin-left: -1 * $right-sidebar-width;
-    }
-  }
-
-  .page__inner-wrap,
-  .page__inner-wrap .page__content,
-  .page__inner-wrap .page__meta,
-  .page__inner-wrap .page__share {
-    float: right;
-  }
-
-  /* -------------------- author sidebar profile -------------------- */
-  .author__avatar {
-    float: none;
-  }
-
-  .author__urls-wrapper i.fas,
-  .author__urls-wrapper i.fab {
-    margin-left: 0.5em;
-    margin-right: 0;
-  }
-
-  /* -------------------- typography / content -------------------- */
-  ul, ol {
-    margin-right: 1.5em;
-    margin-left: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  blockquote {
-    border-left: none;
-    border-right: 0.25em solid $primary-color;
-    padding-left: 0;
-    padding-right: 1em;
-    margin-left: 0;
-  }
-
-  .page__content {
-    ul, ol {
-      padding-right: 1.25rem;
-      padding-left: 0;
-    }
-  }
-
-  table th, table td {
-    text-align: right;
-  }
-
-  .page__hero-caption {
-    border-radius: 0 $border-radius 0 0;
-  }
-
-  .page__content blockquote + .small {
-    padding-right: 1.25rem;
-    padding-left: 0;
-  }
-
-  .back-to-top {
-    text-align: left;
-  }
-
-  .btn i.fas,
-  .btn i.fab {
-    margin-left: 0.5em;
-    margin-right: 0;
-  }
-
-  /* -------------------- footer -------------------- */
-  .page__footer-follow li + li:before {
-    padding-right: 0;
-    padding-left: 5px;
-  }
-
-  .page__footer-follow a {
-    padding-right: 0;
-    padding-left: 10px;
-  }
-
-  .page__footer-copyright {
-    text-align: center;
-  }
-
-  /* -------------------- sidebar profile center alignment -------------------- */
-  .author__avatar {
-    text-align: center;
-  }
-
-  .author__avatar img {
-    margin: 0 auto;
-    display: block;
-  }
-
-  .author__content {
-    text-align: center;
-  }
-
-  .author__urls-wrapper {
-    text-align: center;
-  }
-
-  .author__urls-wrapper ul {
-    display: inline-block;
-    text-align: right;
-  }
-
-  /* -------------------- navigation / pagination -------------------- */
-  .pagination li {
-    float: right;
-    margin-left: 0;
-    margin-right: -1px;
-  }
-
-  .pagination li:first-child {
-    margin-right: 0;
-  }
-
-  .pagination--pager {
-    float: right;
-  }
-
-  .pagination--pager:first-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
-  }
-
-  .pagination--pager:last-child {
-    margin-left: 0;
-    margin-right: -1px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-  }
-
-  .nav__list .nav__items .active {
-    margin-left: 0;
-    margin-right: -0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .toc .nav__title {
-    border-top-left-radius: 0;
-    border-top-right-radius: $border-radius;
-  }
-
-  .toc__menu li ul > li a {
-    padding-left: 0;
-    padding-right: 1.25rem;
-  }
-
-  .toc__menu li ul li ul > li a {
-    padding-left: 0;
-    padding-right: 1.75rem;
-  }
-
-  .toc__menu li ul li ul li ul > li a {
-    padding-left: 0;
-    padding-right: 2.25rem;
-  }
-
-  .toc__menu li ul li ul li ul li ul > li a {
-    padding-left: 0;
-    padding-right: 2.75rem;
-  }
-
-  .toc__menu li ul li ul li ul li ul li ul > li a {
-    padding-left: 0;
-    padding-right: 3.25rem;
-  }
-
-  /* -------------------- resume-specific components -------------------- */
-  /* .timeline-item / .contact-card are already authored right-to-left by
-     default below, so nothing to flip here for the (default) RTL case. */
-
-  .contact-card p {
-    display: flex;
-    align-items: center;
-    gap: 0.4em;
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-  }
-}
 
 /* ==========================================================================
    Custom Resume Styles
@@ -371,15 +96,10 @@ html[dir="rtl"] {
   content: "";
   position: absolute;
   bottom: -2px;
-  right: 0;
+  left: 0;
   width: 3.25rem;
   height: 2px;
   background: linear-gradient(90deg, var(--resume-primary), var(--resume-accent));
-}
-
-html[dir="ltr"] .page__content h2::after {
-  right: auto;
-  left: 0;
 }
 
 .page__content h3 {
@@ -436,8 +156,8 @@ html[dir="ltr"] .page__content h2::after {
 
 /* Timeline (work history / education) */
 .timeline-item {
-  border-right: 3px solid var(--resume-border);
-  padding-right: 1.5rem;
+  border-left: 3px solid var(--resume-border);
+  padding-left: 1.5rem;
   padding-bottom: 0.25rem;
   margin-bottom: 1.75rem;
   position: relative;
@@ -445,13 +165,13 @@ html[dir="ltr"] .page__content h2::after {
 }
 
 .timeline-item:hover {
-  border-right-color: var(--resume-primary);
+  border-left-color: var(--resume-primary);
 }
 
 .timeline-item::before {
   content: "";
   position: absolute;
-  right: -7px;
+  left: -7px;
   top: 0.3rem;
   width: 12px;
   height: 12px;
@@ -475,8 +195,8 @@ html[dir="ltr"] .page__content h2::after {
 
 .timeline-item li {
   margin-bottom: 0.25rem;
-  margin-left: 0;
-  margin-right: 1.1em;
+  margin-left: 1.1em;
+  margin-right: 0;
   padding-left: 0;
   color: var(--resume-ink);
   line-height: 1.9;
@@ -488,7 +208,7 @@ html[dir="ltr"] .page__content h2::after {
   border-radius: 14px;
   padding: 1.75rem;
   margin-bottom: 1rem;
-  border-right: 4px solid var(--resume-primary);
+  border-left: 4px solid var(--resume-primary);
   box-shadow: 0 4px 14px -6px rgba(179, 136, 255, 0.25);
 }
 
