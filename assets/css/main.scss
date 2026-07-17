@@ -174,6 +174,33 @@ html[dir="rtl"] {
     padding-left: 10px;
   }
 
+  .page__footer-copyright {
+    text-align: center;
+  }
+
+  /* -------------------- sidebar profile center alignment -------------------- */
+  .author__avatar {
+    text-align: center;
+  }
+
+  .author__avatar img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .author__content {
+    text-align: center;
+  }
+
+  .author__urls-wrapper {
+    text-align: center;
+  }
+
+  .author__urls-wrapper ul {
+    display: inline-block;
+    text-align: right;
+  }
+
   /* -------------------- navigation / pagination -------------------- */
   .pagination li {
     float: right;
