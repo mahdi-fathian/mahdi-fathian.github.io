@@ -448,7 +448,11 @@ html[dir="ltr"] .page__content h2::after {
 
 .timeline-item li {
   margin-bottom: 0.25rem;
+  margin-left: 0;
+  margin-right: 1.1em;
+  padding-left: 0;
   color: var(--resume-ink);
+  line-height: 1.9;
 }
 
 /* Contact card */
