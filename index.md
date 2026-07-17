@@ -92,7 +92,7 @@ title: "مهدی فتحیان بروجنی - رزومه"
 
 <div class="timeline-item">
 <h3>کارشناسی مهندسی کامپیوتر</h3>
-<p><strong>دانشگاه علم و صنعت ایران</strong> | تهران | ۱۴۰۳ - ۱۳۹۹</p>
+<p><strong>دانشگاه علم و صنعت ایران</strong> | تهران | ۱۳۹۹ - ۱۴۰۳</p>
 </div>
 
 <div class="timeline-item">
