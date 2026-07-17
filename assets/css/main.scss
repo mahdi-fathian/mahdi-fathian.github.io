@@ -7,98 +7,397 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-/* Custom Resume Styles */
+/* ==========================================================================
+   FULL PERSIAN / RTL SUPPORT
+   The theme (minimal-mistakes) is built for LTR languages only, so every
+   left/right-sensitive rule that this site actually uses is mirrored here.
+   ========================================================================== */
+
+html[dir="rtl"] {
+
+  body {
+    font-family: "Vazirmatn", $sans-serif;
+    text-align: right;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  p, li, blockquote, .page__content, .archive__item-excerpt {
+    font-family: "Vazirmatn", $sans-serif;
+  }
+
+  /* keep code/urls LTR even inside an RTL page */
+  code, pre, kbd, .highlight, a[href^="http"]:not(.skill-badge):not(.skill-badge-outline) {
+    direction: ltr;
+    unicode-bidi: embed;
+  }
+
+  /* -------------------- masthead / nav -------------------- */
+  .masthead__menu {
+    float: right;
+  }
+
+  .masthead__menu .site-nav {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include breakpoint($small) {
+      float: left;
+    }
+  }
+
+  .masthead__menu-item--lg {
+    padding-right: 0;
+    padding-left: 2em;
+  }
+
+  .greedy-nav {
+    .site-title {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    .visible-links {
+      margin-right: 1em;
+    }
+
+    a {
+      margin-left: 0;
+    }
+  }
+
+  /* -------------------- sidebar + page two column layout -------------------- */
+  @include breakpoint($large) {
+    .sidebar {
+      float: right;
+    }
+
+    .page {
+      float: left;
+      padding-right: 0;
+      padding-left: $right-sidebar-width-narrow;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    .page {
+      padding-left: $right-sidebar-width;
+    }
+  }
+
+  .page__inner-wrap,
+  .page__inner-wrap .page__content,
+  .page__inner-wrap .page__meta,
+  .page__inner-wrap .page__share {
+    float: right;
+  }
+
+  /* -------------------- author sidebar profile -------------------- */
+  .author__avatar {
+    float: none;
+  }
+
+  .author__urls-wrapper i.fas,
+  .author__urls-wrapper i.fab {
+    margin-left: 0.5em;
+    margin-right: 0;
+  }
+
+  /* -------------------- typography / content -------------------- */
+  ul, ol {
+    margin-right: 1.5em;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  blockquote {
+    border-left: none;
+    border-right: 0.25em solid $primary-color;
+    padding-left: 0;
+    padding-right: 1em;
+    margin-left: 0;
+  }
+
+  .page__content {
+    ul, ol {
+      padding-right: 1.25rem;
+      padding-left: 0;
+    }
+  }
+
+  table th, table td {
+    text-align: right;
+  }
+
+  .btn i.fas,
+  .btn i.fab {
+    margin-left: 0.5em;
+    margin-right: 0;
+  }
+
+  /* -------------------- resume-specific components -------------------- */
+  /* .timeline-item / .contact-card are already authored right-to-left by
+     default below, so nothing to flip here for the (default) RTL case. */
+
+  .contact-card p {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+}
+
+/* ==========================================================================
+   Custom Resume Styles
+   ========================================================================== */
+
+:root {
+  --resume-primary: #6C63FF;
+  --resume-primary-dark: #4B3FE0;
+  --resume-accent: #00C2A8;
+  --resume-ink: #22223B;
+  --resume-muted: #6b7280;
+  --resume-surface: #ffffff;
+  --resume-surface-soft: #f7f7fc;
+  --resume-border: #eceaf7;
+}
+
+/* Give the whole content column a soft card feel */
+.page__content {
+  animation: resumeFadeIn 0.6s ease both;
+}
+
+@keyframes resumeFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .resume-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--resume-primary) 0%, #a26bfa 55%, var(--resume-accent) 130%);
+  color: #fff;
+  padding: 2.75rem 2rem;
+  border-radius: 18px;
+  margin-bottom: 2.5rem;
   text-align: center;
+  box-shadow: 0 12px 32px -8px rgba(108, 99, 255, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.18) 0, transparent 40%),
+                     radial-gradient(circle at 85% 80%, rgba(255,255,255,0.14) 0, transparent 45%);
+  pointer-events: none;
 }
 
 .resume-header h2 {
-  color: white;
+  color: #fff;
   margin-bottom: 0.5rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  position: relative;
+}
+
+.resume-header p {
+  position: relative;
+  font-size: 1.05rem;
+  opacity: 0.95;
+  margin: 0;
 }
 
 .author__avatar img {
   border-radius: 50%;
-  border: 4px solid #667eea;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 4px solid var(--resume-surface);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+  transition: transform 0.25s ease;
 }
 
-.skill-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+.author__avatar img:hover {
+  transform: scale(1.04);
 }
 
-.skill-badge-outline {
-  display: inline-block;
-  background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
-  padding: 0.3rem 0.9rem;
-  border-radius: 20px;
-  margin: 0.25rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+/* Section headings inside the resume content */
+.page__content h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--resume-ink);
+  margin-top: 2.25rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  border-bottom: 2px solid var(--resume-border);
+}
+
+.page__content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 3.25rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--resume-primary), var(--resume-accent));
+}
+
+html[dir="ltr"] .page__content h2::after {
+  right: auto;
+  left: 0;
+}
+
+.page__content h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--resume-primary-dark);
 }
 
 .section-title {
-  color: #667eea;
-  border-bottom: 2px solid #667eea;
+  color: var(--resume-primary);
+  border-bottom: 2px solid var(--resume-primary);
   padding-bottom: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
+/* Skill badges */
+.skill-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--resume-primary) 0%, #8f6bf0 100%);
+  color: #fff;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  margin: 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px -3px rgba(108, 99, 255, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(108, 99, 255, 0.6);
+}
+
+.skill-badge-outline {
+  display: inline-block;
+  background: var(--resume-surface-soft);
+  color: var(--resume-primary-dark);
+  border: 1.5px solid var(--resume-border);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  margin: 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.skill-badge-outline:hover {
+  border-color: var(--resume-primary);
+  color: var(--resume-primary);
+  background: #fff;
+}
+
+/* Timeline (work history / education) */
 .timeline-item {
-  border-right: 3px solid #667eea;
+  border-right: 3px solid var(--resume-border);
   padding-right: 1.5rem;
-  margin-bottom: 2rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.75rem;
   position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.timeline-item:hover {
+  border-right-color: var(--resume-primary);
 }
 
 .timeline-item::before {
   content: "";
   position: absolute;
-  right: -8px;
-  top: 0;
+  right: -7px;
+  top: 0.3rem;
   width: 12px;
   height: 12px;
-  background: #667eea;
+  background: linear-gradient(135deg, var(--resume-primary), var(--resume-accent));
   border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.15);
 }
 
+.timeline-item h3 {
+  margin-bottom: 0.15rem;
+}
+
+.timeline-item p {
+  margin: 0.2rem 0;
+  color: var(--resume-muted);
+}
+
+.timeline-item ul {
+  margin-top: 0.6rem;
+}
+
+.timeline-item li {
+  margin-bottom: 0.25rem;
+  color: var(--resume-ink);
+}
+
+/* Contact card */
 .contact-card {
-  background: #f8f9fa;
-  border-radius: 10px;
-  padding: 1.5rem;
+  background: var(--resume-surface-soft);
+  border-radius: 14px;
+  padding: 1.75rem;
   margin-bottom: 1rem;
-  border-left: 4px solid #667eea;
+  border-right: 4px solid var(--resume-primary);
+  box-shadow: 0 4px 14px -6px rgba(34, 34, 59, 0.12);
+}
+
+.contact-card h3 {
+  margin-top: 0;
+}
+
+.contact-card p {
+  margin: 0.5rem 0;
 }
 
 .contact-card a {
-  color: #667eea;
+  color: var(--resume-primary-dark);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.15s ease;
 }
 
 .contact-card a:hover {
+  color: var(--resume-primary);
   text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .resume-header {
+    padding: 2rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .resume-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
 }
 
 @media print {
   .resume-header {
-    background: #667eea !important;
+    background: var(--resume-primary) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  .skill-badge {
+    box-shadow: none;
   }
 }

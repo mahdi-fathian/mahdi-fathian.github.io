@@ -156,7 +156,7 @@ title: "رزومه - مهدی فتحیان بروجنی"
 
 <div class="contact-card">
 <h3>راه‌های ارتباطی</h3>
-<p>📧 ایمایل: <a href="mailto:mahdifathian1380@gmail.com">mahdifathian1380@gmail.com</a></p>
+<p>📧 ایمیل: <a href="mailto:mahdifathian1380@gmail.com">mahdifathian1380@gmail.com</a></p>
 <p>🔗 گیت‌هاب: <a href="https://github.com/mahdi-fathian" target="_blank">github.com/mahdi-fathian</a></p>
 <p>💼 لینکدین: <a href="https://linkedin.com/in/mahdi-fathian-4a112b201" target="_blank">linkedin.com/in/mahdi-fathian-4a112b201</a></p>
 <p><strong>شعار:</strong> راهکارهای هوشمند، کدنویسی تمیز، آینده‌ای بهتر</p>
